@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="draw()">
+	<canvas id="sketch" width="300" height="300">
+	</canvas>
+	<script>
+		function draw() {
+		 	var sketch = document.getElementById('sketch');
+			var context = sketch.getContext("2d");
+//The largest is radius 100 and RED. The medium circle is radius 75,
+//and BLUE. The smallest circle is radius 50, and GREEN
+	  //out
+			context.fillStyle = "#ff0000";
+			context.beginPath();
+			context.arc(150, 150, 100, 0, 2 * Math.PI, true);
+			context.closePath();
+			context.fill();
+
+//middle
+			context.fillStyle = "#0000ff";
+			context.beginPath();
+			context.arc(150, 150, 75, 0, 2 * Math.PI, true);
+			context.closePath();
+			context.fill();
+
+      //inner
+      			context.fillStyle = "#04ff00";
+      			context.beginPath();
+      			context.arc(150, 150, 50, 0, 2 * Math.PI, true);
+      			context.closePath();
+      			context.fill();
+		}
+	</script>
+</body>
+</html>
