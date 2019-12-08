@@ -4,24 +4,24 @@
 	<title></title>
 </head>
 <body onload="draw()">
-	<canvas id="sketch" width="300" height="600">
+	<canvas id="sketch" width="600" height="600">
 	</canvas>
 	<script>
 		function draw() {
 		 	var sketch = document.getElementById('sketch');
 			var context = sketch.getContext("2d");
-      context.fillStyle="#000000";
+			context.fillStyle="#000000";
+			context.fillRect(21, 26, 304, 204);
+			context.fillStyle="#ffffff";
+			context.fillRect(23, 28, 300, 200);
+			
 			//outerloops
-      for (r=1;r<=7;r++){
+      for (r=1;r<=5;r++){
 //innerloops
 //for each i build a circle to the last
-for(i=1;i<=4;i++){
-
-//context.fillRect((i * 30), (r * 30), 20, 20);
-	context.beginPath();
-	context.arc((i * 30),(r * 30), 10, 0, 2 * Math.PI, true);
-	context.closePath();
-	context.fill();
+for(i=1;i<=7;i++){
+context.fillStyle="#000000";
+context.fillRect((i * 40), (r * 40), 20, 20);
 				}
 			}
 		}
