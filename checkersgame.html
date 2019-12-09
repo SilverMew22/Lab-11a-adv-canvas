@@ -4,52 +4,71 @@
 	<title></title>
 </head>
 <body onload="draw()">
+
 	<canvas id="sketch" width="600" height="600">
 	</canvas>
+
 	<script>
 		function draw() {
-		 	var sketch = document.getElementById('sketch');
+			var sketch = document.getElementById('sketch');
 			var context = sketch.getContext("2d");
 			context.fillStyle = "#000000";
-			//even
-			context.fillRect(48, 48, 404, 404);				
-		for (r = 1; r <= 8; r++) {
-			if (r % 2 == 0) { 						
-		for (i = 1; i <= 8; i++) {
-			if (i % 2 == 0) { 
-		context.fillStyle = "#FFFFFF"; 
-		context.fillRect((i * 50), (r * 50), 50, 50);
-		context.fillStyle = "#170100";
-		
-		context.fillStyle = "#bd1515"; 
-        context.beginPath();
-        context.arc(i*50,r*50, 20, 0, 2 * Math.PI, true);
-        context.closePath();
-        context.fill();
-		
-				} else { 
-		context.fillStyle = "#000000"; 
-		context.fillRect((i * 50), (r * 50), 50, 50);
-		
-		
-		
+			context.fillRect(48, 48, 404, 404); //border
+			for (r = 1; r <= 8; r++) {
+				if (r % 2 == 0) {
+					for (i = 1; i <= 8; i++) {
+						if (i % 2 == 0) {
+							context.fillStyle = "#ffffff";
+							context.fillRect((i * 50), (r * 50), 50, 50);
+						} else {
+							context.fillStyle = "#000000";
+							context.fillRect((i * 50), (r * 50), 50, 50);
+							if (r == 2) { //circles
+								context.fillStyle = "#1d8496";
+								context.beginPath();
+								context.arc((i * 50 + 25), (r * 50 + 25), 20, 0, 2 * Math.PI, true);
+								context.closePath();
+								context.fill();
+							}
+
+							if (r >= 6 && r <= 8) { //circles
+								context.fillStyle = "#961d1d";
+								context.beginPath();
+								context.arc((i * 50 + 25), (r * 50 + 25), 20, 0, 2 * Math.PI, true);
+								context.closePath();
+								context.fill();
 							}
 						}
-						//odd
-				} else {for (i = 1; i <= 8; i++) {
-			if (i % 2 == 0) { 
-		context.fillStyle = "#000000"; 
-		context.fillRect((i * 50), (r * 50), 50, 50);} else { 
-		context.fillStyle = "#FFFFFF"; 
-		context.fillRect((i * 50), (r * 50), 50, 50);
-		
-		
-		
+					}
+				} else {
+					for (i = 1; i <= 8; i++) {
+						if (i % 2 == 0) {//squares
+							context.fillStyle = "#000000";
+							context.fillRect((i * 50), (r * 50), 50, 50);
+							if (r <= 3) {//circles
+								context.fillStyle = "#1d8496";
+								context.beginPath();
+								context.arc((i * 50 + 25), (r * 50 + 25), 20, 0, 2 * Math.PI, true);
+								context.closePath();
+								context.fill();
+							}
+							if (r == 7) {//circles
+								context.fillStyle = "#961d1d";
+								context.beginPath();
+								context.arc((i * 50 + 25), (r * 50 + 25), 20, 0, 2 * Math.PI, true);
+								context.closePath();
+								context.fill();
+							}
+						} else {
+							context.fillStyle = "#ffffff";
+							context.fillRect((i * 50), (r * 50), 50, 50);
+						}
+				}
+			}
 		}
-						}}}}
+	}
+
 	</script>
 
 </body>
 </html>
-
-
